@@ -1,0 +1,45 @@
+{
+	"compiler": {
+		"version": "0.8.25+commit.b61c2a91"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"DePinFilecoin/interface/IAIModel.sol": "Name"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"DePinFilecoin/interface/IAIModel.sol": {
+			"keccak256": "0xc050d4c30fdee9622fac340141d4017bbf6f493a6ee74931533dbacd305a2cda",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6ab6bfbc8a57ad3d6ec722dbcc50949983895dbb82f2ca1c0929cbcc11d26f27",
+				"dweb:/ipfs/QmVwKeDHgXZQRnwJiC7wy9kfZr9LSmGPAXaQ7n1mJbquLe"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,79 @@
+{
+	"compiler": {
+		"version": "0.8.25+commit.b61c2a91"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "execute",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getMyCreditScoreCID",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_aiModelSubscriberContract",
+						"type": "address"
+					}
+				],
+				"name": "setAiModelSubscriberContract",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"DePinFilecoin/interface/IAIModel.sol": "IAIModel"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"DePinFilecoin/interface/IAIModel.sol": {
+			"keccak256": "0x31814fd8f5f1ed66fa0e7a1820542a561b6599081bdad8097e08df4f807e86f1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f86ba1e71d35bb61ab4aa7ecf48d25853fc68b6aab31058c850c7f10c56ec251",
+				"dweb:/ipfs/QmXBmoseJvCpVTfXUpaCRyfGuj6A76zQ5DKg6f6bTaLaRd"
+			]
+		}
+	},
+	"version": 1
+}
