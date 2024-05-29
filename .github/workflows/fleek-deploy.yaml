@@ -19,8 +19,11 @@ jobs:
         with:
           node-version: 18
 
+      - name: Install Dependencies
+        run: cd platform && npm install
+
       - name: Install Fleek CLI
-        run: cd platform && npm i -g @fleekxyz/cli
+        run: npm i -g @fleekxyz/cli
 
       - name: Build & deploy sites
         run: cd platform && fleek sites deploy
