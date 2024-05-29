@@ -14,17 +14,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Change to platform directory
-        run: cd platform
-
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
       - name: Install Fleek CLI
-        run: npm i -g @fleekxyz/cli
+        run: cd platform && npm i -g @fleekxyz/cli
 
       - name: Build & deploy sites
-        run: fleek sites deploy
-        working-directory: ./platform
+        run: cd platform && fleek sites deploy
