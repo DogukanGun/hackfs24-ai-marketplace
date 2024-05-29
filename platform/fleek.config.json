@@ -1,0 +1,9 @@
+{
+  "sites": [
+    {
+      "slug": "hundreds-spring-slow",
+      "distDir": "../platform",
+      "buildCommand": "npm run build"
+    }
+  ]
+}
