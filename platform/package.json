@@ -10,12 +10,22 @@
   },
   "dependencies": {
     "@fleekxyz/cli": "^1.3.91",
+    "@lottiefiles/react-lottie-player": "^3.5.3",
     "next": "14.2.3",
+    "flowbite": "^2.3.0",
+
+    "@tanstack/react-query": "^5.29.2",
+    "wagmi": "^2.5.19",
+    "connectkit-next-siwe": "^0.2.0",
     "react": "^18",
-    "react-dom": "^18"
+    "siwe": "^2.2.0",
+    "viem": "2.x",
+    "react-dom": "^18",
+    "react-lottie-player": "^2.0.0"
   },
   "devDependencies": {
     "@types/node": "^20",
+    "daisyui": "^4.10.1",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
