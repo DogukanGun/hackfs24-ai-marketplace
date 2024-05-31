@@ -13,7 +13,7 @@ const Dropdown = ({ options, text }: DropdownProps) => {
                 </div>
                 <select className="select bg-slate-700 select-bordered">
                     {options.map((option)=>{
-                        return (<option>{option}</option>)
+                        return (<option key={`option-${option}`}>{option}</option>)
                     })}
                 </select>
             </label>
