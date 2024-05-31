@@ -2,7 +2,7 @@
   "sites": [
     {
       "slug": "hundreds-spring-slow",
-      "distDir": "../platform",
+      "distDir": "out",
       "buildCommand": "npm run build"
     }
   ]
