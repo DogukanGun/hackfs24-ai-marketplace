@@ -11,9 +11,9 @@ const MarketPlace = () => {
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                     {
-                        [0, 0, 0, 0, 0, 0].map(() => {
+                        [0, 0, 0, 0, 0, 0].map((element) => {
                             return (
-                                <div className="flex flex-col gap-3 rounded-lg border p-4 md:p-6">
+                                <div key={`element-${element}`} className="flex flex-col gap-3 rounded-lg border p-4 md:p-6">
                                     <div>
                                         <span className="block text-sm text-black font-bold md:text-base">Example AI</span>
                                         <span className="block text-sm text-gray-500">July 21, 2021</span>
