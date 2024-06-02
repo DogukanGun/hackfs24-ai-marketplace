@@ -19,6 +19,9 @@ const CustomNavbar = () => {
                 <ul className="menu menu-horizontal px-1">
                     { !isPublishModelHidden && 
                     <li className="nline-block rounded-lg bg-indigo-500 px-8 mx-5 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base"><Link href="/marketplace/create">Publish AI Model</Link></li> }
+                    { isPublishModelHidden && 
+                    <li className="nline-block rounded-lg bg-indigo-500 px-8 mx-5 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base"><Link href="/marketplace">Marketplace</Link></li> }
+                   
                     <li><ConnectKitButton showBalance/></li>
                 </ul>
             </div>

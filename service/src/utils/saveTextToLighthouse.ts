@@ -12,8 +12,10 @@ import { getApiKey } from './getApiKey';
   }
 }
 */
-const saveTextToLighthouse = async(text:string):Promise<LighthouseRes> => {
+const saveTextToLighthouse = async(text:any):Promise<LighthouseRes> => {
     const res = await getApiKey();
     const response = await lighthouse.uploadText(text, res.data.apiKey)
     return response.data as LighthouseRes
 }
+
+export default saveTextToLighthouse;

@@ -1,0 +1,80 @@
+[
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_bridgeAddress",
+				"type": "address"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "aiModels",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "modelName",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "contractAddress",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "subscriptionFee",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "totalSubscribed",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "subscriptionContractAddress",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "repoName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "modelName",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "subscriptionFee",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "erc20",
+				"type": "address"
+			}
+		],
+		"name": "deployModel",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+]
