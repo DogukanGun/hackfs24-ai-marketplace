@@ -1,8 +1,7 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.8.4;
+pragma solidity 0.8.20;
 
 interface IAIModel {
-    function execute() external payable;
     function setAiModelSubscriberContract(address _aiModelSubscriberContract) external;
-    function getMyCreditScoreCID() external view returns (string memory);
+    function getOutput() external view returns (string memory);
 }

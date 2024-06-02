@@ -48,37 +48,7 @@
 			"sourceMap": ""
 		},
 		"gasEstimates": null,
-		"methodIdentifiers": {
-			"getOutput()": "ab1b4b22",
-			"setAiModelSubscriberContract(address)": "cbdddd2e"
-		}
+		"methodIdentifiers": {}
 	},
-	"abi": [
-		{
-			"inputs": [],
-			"name": "getOutput",
-			"outputs": [
-				{
-					"internalType": "string",
-					"name": "",
-					"type": "string"
-				}
-			],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "address",
-					"name": "_aiModelSubscriberContract",
-					"type": "address"
-				}
-			],
-			"name": "setAiModelSubscriberContract",
-			"outputs": [],
-			"stateMutability": "nonpayable",
-			"type": "function"
-		}
-	]
+	"abi": []
 }

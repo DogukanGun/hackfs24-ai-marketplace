@@ -1,19 +1,49 @@
 "use client"
-import { useConnect } from 'wagmi'
+import { useAccount, useConnect,useWalletClient } from 'wagmi'
 import { useState } from "react"
-import { injected } from 'wagmi/connectors'
+import {
+    checkAndSignAuthMessage,
+} from '@lit-protocol/auth-browser';
+import axios from 'axios';
+import { LitNodeClient } from '@lit-protocol/lit-node-client';
+
 
 const CreateAIModel = () => {
 
     const connection = useConnect()
-    
-    const [image,setImage] = useState("")
-    const [model,setModel] = useState("")
-    const [subscriptionFee,setSubscriptionFee] = useState("")
-    const [erc20,setErc20] = useState("")
 
-    const createSub = () => {
-        connection.connect({ connector: injected() })
+    const [image, setImage] = useState("")
+    const [model, setModel] = useState("")
+    const [subscriptionFee, setSubscriptionFee] = useState("")
+    const [erc20, setErc20] = useState("")
+
+    const [authSig, setAuthSig] = useState<any>(null);
+    const [error, setError] = useState<string>();
+
+    // Instantiate a LitNodeClient
+    const litNodeClient = new LitNodeClient({
+        litNetwork: "manzano",
+        debug: true,
+    });
+
+    async function generateAuthSig() {
+        setAuthSig(null);
+        await litNodeClient.connect();
+        let nonce = await litNodeClient.getLatestBlockhash();
+        try {
+            const newAuthSig = await checkAndSignAuthMessage({
+                chain: 'mumbai',
+                walletConnectProjectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID ?? "",
+                nonce: nonce
+            });
+            setAuthSig(newAuthSig);
+            axios.post("http://localhost:8000/lit/encrpt", {
+                sign: newAuthSig
+            })
+        } catch (err) {
+            console.error(err);
+            setError(`Failed to sign auth message: ${err}`);
+        }
     }
 
     return (
@@ -42,8 +72,7 @@ const CreateAIModel = () => {
                             <label htmlFor="email" className="mb-2 inline-block text-sm text-gray-800 sm:text-base">ERC20 Token Address (Payment Currency)</label>
                             <input value={erc20} onChange={(event) => setErc20(event.target.value)} name="email" className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring" />
                         </div>
-
-                        <button onClick={createSub} className="block rounded-lg bg-gray-800 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-gray-700 focus-visible:ring active:bg-gray-600 md:text-base">Publish</button>
+                        <button onClick={generateAuthSig} className="block rounded-lg bg-gray-800 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-gray-700 focus-visible:ring active:bg-gray-600 md:text-base">Publish</button>
 
                     </div>
                 </div>

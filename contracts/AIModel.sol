@@ -3,76 +3,90 @@ pragma solidity >=0.8.4;
 import "https://github.com/bacalhau-project/lilypad-v0/blob/main/hardhat/contracts/LilypadEventsUpgradeable.sol";
 import "https://github.com/bacalhau-project/lilypad-v0/blob/main/hardhat/contracts/LilypadCallerInterface.sol";
 import "DePinFilecoin/interface/IAIModel.sol";
+import "DePinFilecoin/interface/IAIModelSubscribe.sol";
 
-contract AIModel is LilypadCallerInterface,IAIModel{
+contract AIModel is LilypadCallerInterface, IAIModel {
     address public bridgeAddress;
     LilypadEventsUpgradeable bridge;
     address public aiModelSubscriberContract;
     uint256 public lilypadFee;
-    address public executionServer;
     string image;
-    address public owner;  // The owner's address
+    address public owner; // The owner's address
 
-    constructor(address _bridgeContractAddress,string memory _image,address _executionServer) {
+    constructor(address _bridgeContractAddress, string memory _image) {
         bridgeAddress = _bridgeContractAddress;
         bridge = LilypadEventsUpgradeable(_bridgeContractAddress);
-        uint fee = bridge.getLilypadFee();
+        uint256 fee = 300000000000;
         lilypadFee = fee;
         image = _image;
         owner = msg.sender;
-        executionServer = _executionServer;
     }
 
-    string public jobResult;
-    address public jobIDs;
+    mapping(address => string) public jobResults;
+    mapping(uint256 => address) public jobIDs;
 
     // Removed Results structure and related array as they are not needed anymore
 
     event NewResult(address caller, string result);
 
-    modifier onlyExecution() {
-        require(msg.sender == executionServer, "Only the executionServer can call this function");
+    modifier onlySubscriberContract() {
+        require(
+            msg.sender == aiModelSubscriberContract,
+            "Only the executionServer can call this function"
+        );
         _;
     }
 
     modifier onlySubscriber() {
-        require(msg.sender == aiModelSubscriberContract, "Only the executionServer can call this function");
+        IAIModelSubscribe aiModelSubscriber = IAIModelSubscribe(aiModelSubscriberContract);
+        bool res = aiModelSubscriber.isSubscribed(msg.sender);
+        require(
+            res,
+            "Only the subscribed users can call this function"
+        );
         _;
     }
 
-    function execute() external payable onlySubscriber override{
+    function ExecuteForUser(string calldata env) external payable {
         require(msg.value >= lilypadFee, "Not enough to run Lilypad job");
-
-        string memory spec = string(abi.encodePacked(
-            "{",
-            '"Engine": "Docker",',
-            '"Verifier": "Noop",',
-            '"Publisher": "Estuary",',
-            '"PublisherSpec": {"Type": "Estuary"},',
-            '"Docker": {"Image":',
-            image,
-            '},',
-            '"Language": {"JobContext": {}},',
-            '"Wasm": {"EntryModule": {}},',
-            '"Resources": {"GPU": ""},',
-            '"Network": {"Type": "HTTP", "Domains": ["eth.public-rpc.com", "polygon-rpc.com"]},',
-            '"Timeout": 1800,',
-            '"Outputs": [{"StorageSource": "IPFS", "Name": "outputs", "Path": "/outputs"}],',
-            '"Deal": {"Concurrency": 1}',
-            "}"
-        ));
-
-        uint id = bridge.runLilypadJob{value: lilypadFee}(address(this), spec, uint8(LilypadResultType.CID));
+        string memory spec = string(
+            abi.encodePacked(
+                "{",
+                '"Engine": "Docker",',
+                '"Verifier": "Noop",',
+                '"Publisher": "Estuary",',
+                '"PublisherSpec": {"Type": "Estuary"},',
+                '"Docker": {"Image": image, "EnvironmentVariables": ["ENV=',
+                env,
+                '"]},',
+                '"Language": {"JobContext": {}},',
+                '"Wasm": {"EntryModule": {}},',
+                '"Resources": {"GPU": ""},',
+                '"Network": {"Type": "HTTP", "Domains": ["eth.public-rpc.com", "polygon-rpc.com"]},',
+                '"Timeout": 1800,',
+                '"Outputs": [{"StorageSource": "IPFS", "Name": "outputs", "Path": "/outputs"}],',
+                '"Deal": {"Concurrency": 1}',
+                "}"
+            )
+        );
+        uint256 id = bridge.runLilypadJob{value: lilypadFee}(
+            address(this),
+            spec,
+            uint8(LilypadResultType.CID)
+        );
         require(id > 0, "job didn't return a value");
-
+        jobIDs[id] = owner;
     }
 
-    function setAiModelSubscriberContract(address _aiModelSubscriberContract) external override {
+    function setAiModelSubscriberContract(address _aiModelSubscriberContract)
+        external
+        override
+    {
         aiModelSubscriberContract = _aiModelSubscriberContract;
     }
 
-    function getMyCreditScoreCID() external view onlyExecution override returns (string memory){
-        return jobResult;
+    function getOutput() external view onlySubscriber override returns (string memory) {
+        return jobResults[msg.sender];
     }
 
     function lilypadFulfilled(
@@ -81,15 +95,20 @@ contract AIModel is LilypadCallerInterface,IAIModel{
         LilypadResultType _resultType,
         string calldata _result
     ) external override {
-        require(_from == address(bridge)); 
+        require(_from == address(bridge));
         require(_resultType == LilypadResultType.CID);
 
-        console.log("Job Id: ", _jobId, " has been fulfilled with result: ", _result);
+        console.log(
+            "Job Id: ",
+            _jobId,
+            " has been fulfilled with result: ",
+            _result
+        );
 
         // Save the CID against the caller's address
-        jobResult = _result;
-        emit NewResult(executionServer, _result);
-        delete executionServer;
+        jobResults[jobIDs[_jobId]] = _result;
+        emit NewResult(jobIDs[_jobId], _result);
+        delete jobIDs[_jobId];
     }
 
     function lilypadCancelled(
@@ -97,8 +116,8 @@ contract AIModel is LilypadCallerInterface,IAIModel{
         uint256 _jobId,
         string calldata _errorMsg
     ) external override {
-        require(_from == address(bridge)); 
+        require(_from == address(bridge));
         console.log(_errorMsg);
-        delete executionServer;
+        delete jobIDs[_jobId];
     }
 }

@@ -18,7 +18,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"DePinFilecoin/interface/IAIModel.sol": "Name"
+			"DePinFilecoin/interface/IAIModelSubscribe.sol": "Name"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -32,7 +32,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"DePinFilecoin/interface/IAIModel.sol": {
+		"DePinFilecoin/interface/IAIModelSubscribe.sol": {
 			"keccak256": "0xc050d4c30fdee9622fac340141d4017bbf6f493a6ee74931533dbacd305a2cda",
 			"license": "MIT",
 			"urls": [

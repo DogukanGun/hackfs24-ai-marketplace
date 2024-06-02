@@ -1,20 +1,13 @@
 {
 	"compiler": {
-		"version": "0.8.25+commit.b61c2a91"
+		"version": "0.8.20+commit.a1b79de6"
 	},
 	"language": "Solidity",
 	"output": {
 		"abi": [
 			{
 				"inputs": [],
-				"name": "execute",
-				"outputs": [],
-				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getMyCreditScoreCID",
+				"name": "getOutput",
 				"outputs": [
 					{
 						"internalType": "string",
@@ -54,7 +47,7 @@
 		"compilationTarget": {
 			"DePinFilecoin/interface/IAIModel.sol": "IAIModel"
 		},
-		"evmVersion": "cancun",
+		"evmVersion": "shanghai",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -67,11 +60,11 @@
 	},
 	"sources": {
 		"DePinFilecoin/interface/IAIModel.sol": {
-			"keccak256": "0x31814fd8f5f1ed66fa0e7a1820542a561b6599081bdad8097e08df4f807e86f1",
+			"keccak256": "0xfc35a820511b6bc562ee291ccb77c3d211a6f90c6e612773fd1d9692e0d3fa20",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://f86ba1e71d35bb61ab4aa7ecf48d25853fc68b6aab31058c850c7f10c56ec251",
-				"dweb:/ipfs/QmXBmoseJvCpVTfXUpaCRyfGuj6A76zQ5DKg6f6bTaLaRd"
+				"bzz-raw://8a8e6745b70ef574de27ad66d794da078871d91dd7620f860b1e54ca3f15b5c2",
+				"dweb:/ipfs/QmYwor7JLHGZ8vA6rJPNK5EC8MtojQfREq53i1vLzARthX"
 			]
 		}
 	},
