@@ -4,7 +4,6 @@ import { useState } from "react"
 import {
     checkAndSignAuthMessage,
 } from '@lit-protocol/auth-browser';
-import { LitAccessControlConditionResource, LitAbility } from '@lit-protocol/auth-helpers';
 import axios from 'axios';
 import { LitNodeClient } from '@lit-protocol/lit-node-client';
 
