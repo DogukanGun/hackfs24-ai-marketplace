@@ -1,5 +1,7 @@
 import express from "express"
-import * as registerController from "../controllers/docker"
+import * as registerController from "../controllers/lillypad"
 
-const registery = express.Router()
-registery.post("/register",registerController.registerDockerContainer)
+const lillypadRouter = express.Router()
+lillypadRouter.post("/run-lilypad-cowsay",registerController.runLilyPadCowsay)
+
+export default lillypadRouter

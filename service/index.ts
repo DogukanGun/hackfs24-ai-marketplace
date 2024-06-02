@@ -2,7 +2,7 @@ import app from './server'
 import 'dotenv/config'
 import mongoose from "mongoose"
 
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGO_URI ?? "")
     .then(result=>{        
         if(result){
             void app.listen({host:"0.0.0.0",port:8000})  
