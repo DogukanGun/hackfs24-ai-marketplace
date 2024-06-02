@@ -1,0 +1,279 @@
+{
+	"id": "880c204720fa5bb640bce5a273d3ff46",
+	"_format": "hh-sol-build-info-1",
+	"solcVersion": "0.8.20",
+	"solcLongVersion": "0.8.20+commit.a1b79de6",
+	"input": {
+		"language": "Solidity",
+		"sources": {
+			"DePinFilecoin/interface/IAIModel.sol": {
+				"content": "// SPDX-License-Identifier: MIT\npragma solidity 0.8.20;\n\ninterface IAIModel {\n    function setAiModelSubscriberContract(address _aiModelSubscriberContract) external;\n    function getOutput() external view returns (string memory);\n}"
+			}
+		},
+		"settings": {
+			"optimizer": {
+				"enabled": false,
+				"runs": 200
+			},
+			"outputSelection": {
+				"*": {
+					"": [
+						"ast"
+					],
+					"*": [
+						"abi",
+						"metadata",
+						"devdoc",
+						"userdoc",
+						"storageLayout",
+						"evm.legacyAssembly",
+						"evm.bytecode",
+						"evm.deployedBytecode",
+						"evm.methodIdentifiers",
+						"evm.gasEstimates",
+						"evm.assembly"
+					]
+				}
+			},
+			"remappings": []
+		}
+	},
+	"output": {
+		"contracts": {
+			"DePinFilecoin/interface/IAIModel.sol": {
+				"IAIModel": {
+					"abi": [
+						{
+							"inputs": [],
+							"name": "getOutput",
+							"outputs": [
+								{
+									"internalType": "string",
+									"name": "",
+									"type": "string"
+								}
+							],
+							"stateMutability": "view",
+							"type": "function"
+						},
+						{
+							"inputs": [
+								{
+									"internalType": "address",
+									"name": "_aiModelSubscriberContract",
+									"type": "address"
+								}
+							],
+							"name": "setAiModelSubscriberContract",
+							"outputs": [],
+							"stateMutability": "nonpayable",
+							"type": "function"
+						}
+					],
+					"devdoc": {
+						"kind": "dev",
+						"methods": {},
+						"version": 1
+					},
+					"evm": {
+						"assembly": "",
+						"bytecode": {
+							"functionDebugData": {},
+							"generatedSources": [],
+							"linkReferences": {},
+							"object": "",
+							"opcodes": "",
+							"sourceMap": ""
+						},
+						"deployedBytecode": {
+							"functionDebugData": {},
+							"generatedSources": [],
+							"immutableReferences": {},
+							"linkReferences": {},
+							"object": "",
+							"opcodes": "",
+							"sourceMap": ""
+						},
+						"gasEstimates": null,
+						"legacyAssembly": null,
+						"methodIdentifiers": {
+							"getOutput()": "ab1b4b22",
+							"setAiModelSubscriberContract(address)": "cbdddd2e"
+						}
+					},
+					"metadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"getOutput\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_aiModelSubscriberContract\",\"type\":\"address\"}],\"name\":\"setAiModelSubscriberContract\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"DePinFilecoin/interface/IAIModel.sol\":\"IAIModel\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"DePinFilecoin/interface/IAIModel.sol\":{\"keccak256\":\"0xfc35a820511b6bc562ee291ccb77c3d211a6f90c6e612773fd1d9692e0d3fa20\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8a8e6745b70ef574de27ad66d794da078871d91dd7620f860b1e54ca3f15b5c2\",\"dweb:/ipfs/QmYwor7JLHGZ8vA6rJPNK5EC8MtojQfREq53i1vLzARthX\"]}},\"version\":1}",
+					"storageLayout": {
+						"storage": [],
+						"types": null
+					},
+					"userdoc": {
+						"kind": "user",
+						"methods": {},
+						"version": 1
+					}
+				}
+			}
+		},
+		"sources": {
+			"DePinFilecoin/interface/IAIModel.sol": {
+				"ast": {
+					"absolutePath": "DePinFilecoin/interface/IAIModel.sol",
+					"exportedSymbols": {
+						"IAIModel": [
+							12
+						]
+					},
+					"id": 13,
+					"license": "MIT",
+					"nodeType": "SourceUnit",
+					"nodes": [
+						{
+							"id": 1,
+							"literals": [
+								"solidity",
+								"0.8",
+								".20"
+							],
+							"nodeType": "PragmaDirective",
+							"src": "32:23:0"
+						},
+						{
+							"abstract": false,
+							"baseContracts": [],
+							"canonicalName": "IAIModel",
+							"contractDependencies": [],
+							"contractKind": "interface",
+							"fullyImplemented": false,
+							"id": 12,
+							"linearizedBaseContracts": [
+								12
+							],
+							"name": "IAIModel",
+							"nameLocation": "67:8:0",
+							"nodeType": "ContractDefinition",
+							"nodes": [
+								{
+									"functionSelector": "cbdddd2e",
+									"id": 6,
+									"implemented": false,
+									"kind": "function",
+									"modifiers": [],
+									"name": "setAiModelSubscriberContract",
+									"nameLocation": "91:28:0",
+									"nodeType": "FunctionDefinition",
+									"parameters": {
+										"id": 4,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 3,
+												"mutability": "mutable",
+												"name": "_aiModelSubscriberContract",
+												"nameLocation": "128:26:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 6,
+												"src": "120:34:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_address",
+													"typeString": "address"
+												},
+												"typeName": {
+													"id": 2,
+													"name": "address",
+													"nodeType": "ElementaryTypeName",
+													"src": "120:7:0",
+													"stateMutability": "nonpayable",
+													"typeDescriptions": {
+														"typeIdentifier": "t_address",
+														"typeString": "address"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "119:36:0"
+									},
+									"returnParameters": {
+										"id": 5,
+										"nodeType": "ParameterList",
+										"parameters": [],
+										"src": "164:0:0"
+									},
+									"scope": 12,
+									"src": "82:83:0",
+									"stateMutability": "nonpayable",
+									"virtual": false,
+									"visibility": "external"
+								},
+								{
+									"functionSelector": "ab1b4b22",
+									"id": 11,
+									"implemented": false,
+									"kind": "function",
+									"modifiers": [],
+									"name": "getOutput",
+									"nameLocation": "179:9:0",
+									"nodeType": "FunctionDefinition",
+									"parameters": {
+										"id": 7,
+										"nodeType": "ParameterList",
+										"parameters": [],
+										"src": "188:2:0"
+									},
+									"returnParameters": {
+										"id": 10,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 9,
+												"mutability": "mutable",
+												"name": "",
+												"nameLocation": "-1:-1:-1",
+												"nodeType": "VariableDeclaration",
+												"scope": 11,
+												"src": "214:13:0",
+												"stateVariable": false,
+												"storageLocation": "memory",
+												"typeDescriptions": {
+													"typeIdentifier": "t_string_memory_ptr",
+													"typeString": "string"
+												},
+												"typeName": {
+													"id": 8,
+													"name": "string",
+													"nodeType": "ElementaryTypeName",
+													"src": "214:6:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_string_storage_ptr",
+														"typeString": "string"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "213:15:0"
+									},
+									"scope": 12,
+									"src": "170:59:0",
+									"stateMutability": "view",
+									"virtual": false,
+									"visibility": "external"
+								}
+							],
+							"scope": 13,
+							"src": "57:174:0",
+							"usedErrors": [],
+							"usedEvents": []
+						}
+					],
+					"src": "32:199:0"
+				},
+				"id": 0
+			}
+		}
+	}
+}

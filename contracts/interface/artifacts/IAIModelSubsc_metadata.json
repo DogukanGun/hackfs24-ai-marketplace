@@ -18,7 +18,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"DePinFilecoin/interface/IAIModelSubscribe.sol": "I"
+			"DePinFilecoin/interface/IAIModelSubscribe.sol": "IAIModelSubsc"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -33,11 +33,11 @@
 	},
 	"sources": {
 		"DePinFilecoin/interface/IAIModelSubscribe.sol": {
-			"keccak256": "0x8bbc0dd7778891a41411a554979a72aeb965aaab26ac70b207a898db13c16174",
+			"keccak256": "0xae7e6194fdfe79e3f3d273ae2f76984583fd4d1e7c0e6f8898ed39469ed71873",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://9a060bf3d85ddcac5cd25a475fea0efee221e03e45a74a6b7947b54897eb1b8b",
-				"dweb:/ipfs/QmeQFdTw9jGQxfcMVjAgzG9qwZyxXWWTLhmhmAgJfzLbrt"
+				"bzz-raw://17182b4261420e53143ee8f6eb722194e6de9859705b6e8a8a36f2c67a72b962",
+				"dweb:/ipfs/QmXxh3i9wtwHWBHCavHFKxWcnHz5K4YeTj2bC7VvF9n6EN"
 			]
 		}
 	},

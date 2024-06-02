@@ -49,35 +49,27 @@
 		},
 		"gasEstimates": null,
 		"methodIdentifiers": {
-			"getOutput()": "ab1b4b22",
-			"setAiModelSubscriberContract(address)": "cbdddd2e"
+			"isSubscribed(address)": "b92ae87c"
 		}
 	},
 	"abi": [
 		{
-			"inputs": [],
-			"name": "getOutput",
-			"outputs": [
-				{
-					"internalType": "string",
-					"name": "",
-					"type": "string"
-				}
-			],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
 			"inputs": [
 				{
 					"internalType": "address",
-					"name": "_aiModelSubscriberContract",
+					"name": "user",
 					"type": "address"
 				}
 			],
-			"name": "setAiModelSubscriberContract",
-			"outputs": [],
-			"stateMutability": "nonpayable",
+			"name": "isSubscribed",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "view",
 			"type": "function"
 		}
 	]

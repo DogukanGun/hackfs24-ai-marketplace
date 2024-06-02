@@ -1,0 +1,65 @@
+{
+	"compiler": {
+		"version": "0.8.20+commit.a1b79de6"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "isSubscribed",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"DePinFilecoin/interface/IAIModelSubscribe.sol": "IAIModelSubscribe"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"DePinFilecoin/interface/IAIModelSubscribe.sol": {
+			"keccak256": "0x68ad7360ec43a0dd4cf34ad273aca1382d6a57c3f838e9f7e1d3cfc4587c66c7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5027b4dd441850d3fcf30dd9c51586bd348b82109488182b979543c8f0e31285",
+				"dweb:/ipfs/Qmb9gW7sN7Uqh76QRGPLudxdxFN77HMn1n8R1A4BkeV8ro"
+			]
+		}
+	},
+	"version": 1
+}

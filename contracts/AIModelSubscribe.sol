@@ -1,9 +1,10 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.8.4;
+pragma solidity 0.8.20;
 import "DePinFilecoin/interface/IAIModel.sol";
+import "DePinFilecoin/interface/IAIModelSubscribe.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/IERC20.sol";
 
-contract AIModelSubscribe {
+contract AIModelSubscribe is IAIModelSubscribe {
 
     address aiModelContract;
     address owner;
@@ -24,20 +25,28 @@ contract AIModelSubscribe {
         _;
     }
 
+    modifier onlyAIModel() {
+        require(msg.sender == aiModelContract, "Only the executionServer can call this function");
+        _;
+    }
+
     modifier onlySubscriber() {
         require(subscribers[msg.sender] == true, "You must subscibe first");
         _;
     }
 
-    function subscribe() external payable {
-        require(subscribers[msg.sender] == false,"You have already subscribed");
-        require(msg.value > fee, "You don't have enought fee to pay subscription");
-        erc20.transferFrom(msg.sender, address(this), fee);
-        subscribers[msg.sender] = true;
+    function isSubscribed(address user) external view onlyAIModel override returns(bool) {
+        return subscribers[user];
     }
 
-    function execute() external payable onlySubscriber {
-        IAIModel(aiModelContract).execute();
+    function subscribe() external payable {
+        require(subscribers[msg.sender] == false,"You have already subscribed");
+        uint256 balance = erc20.balanceOf(msg.sender);
+        require(balance > fee, "You don't have enought balance to pay subscription");
+        uint allowance = erc20.allowance(msg.sender, address(this));
+        require(allowance > fee, "You don't have enought allowance to pay subscription");
+        erc20.transferFrom(msg.sender, address(this), fee);
+        subscribers[msg.sender] = true;
     }
 
     function getStake() public onlyOwner {
